@@ -1,0 +1,8 @@
+{
+  "Number of lessons is required": "Сабақтар саны қажет",
+  "Number of lessons must be positive": "Сабақтар саны оң болуы керек",
+  "Price is required": "Баға қажет",
+  "Price must be positive": "Баға оң болуы керек",
+  "Test price cannot be negative": "Сынақ бағасы теріс сан бола алмайды",
+  "Test price is required": "Сынақ бағасын енгізу қажет"
+}

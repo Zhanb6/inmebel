@@ -1,0 +1,65 @@
+services:
+  nginx:
+     image: nginx:latest
+     volumes:
+        - ./:/var/www
+        - ./_docker/nginx/conf.d:/etc/nginx/conf.d
+     ports:
+        - "8860:80"
+     restart: always
+     depends_on:
+        - app
+     container_name: nginx_api_inmebel_kz
+     networks:
+        - app-network
+  postgres:
+      image: postgres:16
+      container_name: postgres_api_inmebel_kz
+      restart: always
+      environment:
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+          POSTGRES_DB: inmebel_kz
+      ports:
+          - "5439:5432"
+      volumes:
+          - postgres_data_api_inmebel_kz:/var/lib/postgresql/data
+      networks:
+          - app-network
+
+
+  pgadmin:
+      image: dpage/pgadmin4
+      container_name: pgadmin_api_inmebel_kz
+      restart: always
+      environment:
+          PGADMIN_DEFAULT_EMAIL: admin@example.com
+          PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:?Set PGADMIN_DEFAULT_PASSWORD}
+      ports:
+          - "8070:80"
+      depends_on:
+          - postgres
+      networks:
+          - app-network
+
+
+  app:
+    restart: always
+    user: root
+    build:
+      context: .
+      dockerfile: _docker/app/Dockerfile
+    volumes:
+      - ./:/var/www
+      - vendor_data:/var/www/vendor
+    container_name: app_api_inmebel_kz
+    networks:
+        - app-network
+    depends_on:
+        - postgres
+
+volumes:
+    postgres_data_api_inmebel_kz:
+    vendor_data:
+networks:
+  app-network:

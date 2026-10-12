@@ -1,0 +1,15 @@
+{
+  "Date of birth is required": "Date of birth is required",
+  "Email is invalid": "Email is invalid",
+  "Email is required": "Email is required",
+  "Enter 4-digit code": "Enter 4-digit code",
+  "Firstname is required": "Firstname is required",
+  "Lastname is required": "Lastname is required",
+  "OTP is required": "OTP is required",
+  "Password and Confirm mismatch": "Password and Confirm mismatch",
+  "Password is required": "Password is required",
+  "Password is weak": "Password is weak",
+  "Password must be at least {{symbols}} symbols": "Password must be at least {{symbols}} symbols",
+  "Password must be at most {{symbols}} symbols": "Password must be at most {{symbols}} symbols",
+  "Speech-Language therapist's conclusion is required": "Speech-Language therapist's conclusion is required"
+}

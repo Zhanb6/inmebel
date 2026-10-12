@@ -1,0 +1,16 @@
+services:
+  inmebel_frontend:
+    container_name: inmebel_frontend
+    build:
+      cache_from:
+        - inmebel_frontend:latest
+    image: inmebel_frontend
+    restart: always
+    ports:
+      - "13000:3000"
+    env_file:
+      - .env.production
+
+networks:
+  inmebel_network:
+    external: true

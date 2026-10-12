@@ -1,0 +1,14 @@
+services:
+  admin_inmebel_front:
+    container_name: admin_inmebel_front
+    build:
+      context: .
+      args:
+        VITE_API_BASE_URL: "https://admin.inmebel.kz"
+    restart: always
+    networks:
+      - inmebel_network
+
+networks:
+  inmebel_network:
+    external: true

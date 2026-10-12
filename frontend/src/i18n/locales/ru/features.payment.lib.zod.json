@@ -1,0 +1,8 @@
+{
+  "Number of lessons is required": "Необходимое количество уроков",
+  "Number of lessons must be positive": "Количество уроков должно быть положительным.",
+  "Price is required": "Цена обязательна",
+  "Price must be positive": "Цена должна быть положительной",
+  "Test price cannot be negative": "Тестовая цена не может быть отрицательной",
+  "Test price is required": "Требуется тестовая цена"
+}

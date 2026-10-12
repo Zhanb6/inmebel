@@ -1,0 +1,84 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: inmebel_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_DB: inmebel_kz
+    volumes:
+      - inmebel_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root -d inmebel_kz"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks:
+      - inmebel_internal
+
+  app:
+    build:
+      context: ./api
+      dockerfile: _docker/app/Dockerfile
+    container_name: inmebel_api_app
+    restart: unless-stopped
+    user: root
+    volumes:
+      - ./api:/var/www
+      - inmebel_vendor_data:/var/www/vendor
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - inmebel_internal
+
+  api_nginx:
+    image: nginx:latest
+    container_name: inmebel_api_nginx
+    restart: unless-stopped
+    volumes:
+      - ./api:/var/www
+      - ./api/_docker/nginx/conf.d:/etc/nginx/conf.d:ro
+    ports:
+      - "127.0.0.1:8862:80"
+    depends_on:
+      - app
+    networks:
+      - inmebel_internal
+      - yapp_backend_default
+
+  frontend:
+    build:
+      context: ./frontend
+    image: inmebel_frontend:saas
+    container_name: inmebel_frontend
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:13001:3000"
+    networks:
+      - yapp_backend_default
+
+  admin_front:
+    build:
+      context: ./admin
+      args:
+        VITE_API_BASE_URL: "https://admin.inmebel.kz"
+    image: inmebel_admin_front:saas
+    container_name: inmebel_admin_front
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:13002:80"
+    networks:
+      - yapp_backend_default
+
+volumes:
+  inmebel_postgres_data:
+  inmebel_vendor_data:
+
+networks:
+  inmebel_internal:
+    name: inmebel_internal
+  yapp_backend_default:
+    external: true
+    name: yapp_backend_default

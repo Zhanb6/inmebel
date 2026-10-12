@@ -1,0 +1,15 @@
+{
+  "Date of birth is required": "Укажите дату рождения.",
+  "Email is invalid": "Недействительный адрес электронной почты",
+  "Email is required": "Требуется адрес электронной почты",
+  "Enter 4-digit code": "Введите 4-значный код",
+  "Firstname is required": "Имя обязательно",
+  "Lastname is required": "Фамилия обязательна",
+  "OTP is required": "Требуется одноразовый пароль",
+  "Password and Confirm mismatch": "Несоответствие пароля и подтверждения",
+  "Password is required": "Требуется пароль",
+  "Password is weak": "Пароль слабый",
+  "Password must be at least {{symbols}} symbols": "Пароль должен содержать не менее {{symbols}} символов.",
+  "Password must be at most {{symbols}} symbols": "Пароль должен содержать не более {{symbols}} символов.",
+  "Speech-Language therapist's conclusion is required": "Требуется заключение логопеда."
+}

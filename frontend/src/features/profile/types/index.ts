@@ -1,0 +1,5 @@
+export type {IConclusionItem} from "./conclusion"
+export type {IForm} from "./form"
+export type {ILesson} from "./lesson"
+export type {IProfile, IStudent} from "./profile"
+export type {IEditStudentDetailsIn} from "./studentDetails"

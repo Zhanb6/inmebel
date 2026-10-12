@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+**/node_modules/
+**/vendor/
+**/.next/
+**/dist/
+**/build/
+**/*.log
+**/*.pid
+**/*.sql
+**/*.sql.gz
+**/*.dump
+.DS_Store
+local/

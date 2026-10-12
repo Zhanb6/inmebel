@@ -1,0 +1,15 @@
+{
+  "Email is invalid": "Электрондық пошта жарамсыз",
+  "Email is required": "Электрондық пошта қажет",
+  "Firstname is required": "Аты қажет",
+  "Lastname is required": "Тегі қажет",
+  "Password and Confirm mismatch": "Құпия сөз және сәйкессіздікті растау",
+  "Password is required": "Құпия сөз қажет",
+  "Password is weak": "Құпия сөз әлсіз",
+  "Password must be at least {{symbols}} symbols": "Құпия сөз кем дегенде {{symbols}} таңбадан тұруы керек",
+  "Enter 4-digit code": "4 таңбалы кодты енгізіңіз",
+  "New password must differ from old password": "Жаңа құпия сөз ескі құпия сөзден өзгеше болуы керек",
+  "OTP is required": "OTP қажет",
+  "Password must be at most {{symbols}} symbols": "Құпия сөз ең көбі {{symbols}} таңбадан тұруы керек",
+  "Remember is required": "Есте сақтау қажет"
+}
